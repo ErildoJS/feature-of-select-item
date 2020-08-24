@@ -1,25 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import'./styles.css'
+import { useState } from 'react';
 
-function App() {
+const  App: React.FC = () => {
+  const [selectedItems, setSelectedItems] = useState<string[]>([])
+  function handleSelectedItem(item: string) {
+    setSelectedItems([item])
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="container">
+      <div className="content">
+        <ul className="childs">
+
+          <li 
+          onClick={() => handleSelectedItem(item)}
+          className={selectedItems.includes(item)? 'selected': ''}
+          >
+            <button type="button">
+              <img src="https://avatars0.githubusercontent.com/u/52578096?s=460&u=d233e09f38650572379a534f8fa22788e4aa42bf&v=4" alt="Item"/>
+            </button>
+          </li>
+
+          <li>
+            <button type="button">
+              <img src="https://avatars0.githubusercontent.com/u/52578096?s=460&u=d233e09f38650572379a534f8fa22788e4aa42bf&v=4" alt="Item"/>
+            </button>
+          </li>
+
+          <li>
+            <button type="button">
+              <img src="https://avatars0.githubusercontent.com/u/52578096?s=460&u=d233e09f38650572379a534f8fa22788e4aa42bf&v=4" alt="Item"/>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>    
   );
 }
 
